@@ -5,4 +5,9 @@ import pandas as pd
 # Problem2: which company are similar(correlation), for diversifying portfolio?
 # Problem3: which
 
-print("yes")
+# read excel file, sheet="Stacked"
+raw_stacked = pd.read_excel("SixHKStockData.xls", "Stacked")
+# print(raw_stacked.isnull().all())
+
+
+
