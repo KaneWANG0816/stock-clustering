@@ -35,10 +35,10 @@ def plot_dendrogram(labels, model, **kwargs):
 raw_stacked = pd.read_excel("SixHKStockData.xls", "Stacked")
 # print(raw_stacked.values.shape)
 # print(raw_stacked.head(3))
-# print(raw_stacked.isnull().all())
+# print(raw_stacked.info())
 
 stock_ids = raw_stacked['stock_id'].unique()
-# print(stocks)
+print(stock_ids)
 
 # Normalization: Min-Max scaling for each column
 indicators = ['open', 'close', 'high', 'low', 'volume']
@@ -72,7 +72,7 @@ for stock_id in splits.keys():
     splits[stock_id] = splits[stock_id].ravel()
 
 training = np.array(list(splits.values()))
-print(training.shape)
+# print(training.shape)
 
 # clustering
 clustering = AgglomerativeClustering(distance_threshold=0, n_clusters=None)
@@ -83,4 +83,4 @@ plt.title("Hierarchical Clustering")
 plot_dendrogram(stock_ids, clustering, truncate_mode="level", p=3)
 plt.xlabel("Stocks")
 plt.show()
-# plt.savefig('Hierarchical Clustering.png')
+# plt.savefig('HierarchicalClusteringForDiversifyingPortfolio.png')
