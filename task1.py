@@ -4,6 +4,8 @@ from sklearn.cluster import AgglomerativeClustering
 from matplotlib import pyplot as plt
 from scipy.cluster.hierarchy import dendrogram
 
+# Problem1: which company are similar(correlation), for diversifying portfolio
+# Using hierarchical clustering
 
 def plot_dendrogram(labels, model, **kwargs):
     # Create linkage matrix and then plot the dendrogram
@@ -26,10 +28,6 @@ def plot_dendrogram(labels, model, **kwargs):
     # Plot the corresponding dendrogram
     dendrogram(linkage_matrix, labels=labels, **kwargs)
 
-
-# Problem1: which company are similar(correlation), for diversifying portfolio?
-# Problem2: which features are suitable for stock price prediction?
-# Problem3: which
 
 # read excel file, sheet="Stacked"
 raw_stacked = pd.read_excel("SixHKStockData.xls", "Stacked")
@@ -83,4 +81,4 @@ plt.title("Hierarchical Clustering")
 plot_dendrogram(stock_ids, clustering, truncate_mode="level", p=3)
 plt.xlabel("Stocks")
 plt.show()
-plt.savefig('Hierarchical Clustering.png')
+# plt.savefig('Hierarchical Clustering.png')
