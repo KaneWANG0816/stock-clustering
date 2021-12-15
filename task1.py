@@ -70,6 +70,9 @@ for stock_id in splits.keys():
 # Reshape for clustering
 for stock_id in splits.keys():
     splits[stock_id] = splits[stock_id].ravel()
+    # Only use close price
+    # splits[stock_id] = splits[stock_id].T[1]
+
 
 training = np.array(list(splits.values()))
 # print(training.shape)
@@ -82,5 +85,5 @@ clustering.fit(training)
 plt.title("Hierarchical Clustering")
 plot_dendrogram(stock_ids, clustering, truncate_mode="level", p=3)
 plt.xlabel("Stocks")
-plt.show()
 # plt.savefig('HierarchicalClusteringForDiversifyingPortfolio.png')
+plt.show()
