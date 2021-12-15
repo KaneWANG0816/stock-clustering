@@ -10,6 +10,8 @@ from scipy.cluster.hierarchy import dendrogram
 # Also, the close price is chosen for calculating the RoR
 
 # Moreover, in this problem, we calculate RoRs of 7 days, 30 days, 180 days, 360 days and 1080 days
+durations = [7, 30, 180, 360, 1080]
+stock_ids = ["1", "11", "293", "857", "13", "23"]
 
 
 def plot_dendrogram(labels, model, **kwargs):
@@ -51,8 +53,6 @@ data_closePrice = data_closePrice.drop(data_closePrice.index[range(68)])
 # print(data_closePrice.info())
 
 # Calculate RoRs for each stock in different durations
-stock_ids = ["1", "11", "293", "857", "13", "23"]
-durations = [7, 30, 180, 360, 1080]
 data = dict()
 for duration in durations:
     RoRs = pd.DataFrame()
